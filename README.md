@@ -51,45 +51,14 @@ firebase/   Firestore security rules
 
 ## One-time setup
 
-You need free accounts at [Firebase](https://console.firebase.google.com) and [Cloudflare](https://dash.cloudflare.com). Neither charges anything at this size, but **Cloudflare asks for a card before it turns on R2**.
+**Follow the step-by-step guide in [SETUP.md](SETUP.md)**, which has direct links to every console page. In short:
 
-### 1. Firebase (accounts + sync)
-
-1. Go to the [Firebase console](https://console.firebase.google.com) and choose **Create project**. Google Analytics is optional.
-2. **Build → Authentication → Get started**. Enable **Email/Password**, and optionally **Google**.
-3. **Authentication → Settings → Authorized domains**: add `vladk-iii.github.io`.
-4. **Build → Firestore Database → Create database**. Pick a location and start in **production mode**.
-5. **Firestore → Rules**: replace the contents with [`firebase/firestore.rules`](firebase/firestore.rules) and click **Publish**.
-6. **Project settings (⚙) → General → Your apps → Web app (`</>`)**. Register an app and note the `apiKey`, `authDomain`, `projectId` and `appId`.
-
-### 2. Cloudflare (PDF storage)
-
-1. Go to the [Cloudflare dashboard](https://dash.cloudflare.com). Open **R2 Object Storage**, enable it, and create a bucket named **`peach-papers`**.
-2. Create an API token: **My Profile → API Tokens → Create Token → "Edit Cloudflare Workers"** template.
-3. Note your **Account ID**. It's in the dashboard sidebar, or in the URL.
-4. *(Optional but recommended)* Set up a billing notification under **Manage Account → Billing**.
-
-### 3. GitHub settings
-
-In this repo, open **Settings → Secrets and variables → Actions**.
-
-- **Secrets** tab:
-  - `CLOUDFLARE_API_TOKEN`: the token from step 2
-  - `CLOUDFLARE_ACCOUNT_ID`: your account id
-- **Variables** tab:
-  - `FIREBASE_API_KEY`, `FIREBASE_AUTH_DOMAIN`, `FIREBASE_PROJECT_ID`, `FIREBASE_APP_ID`: the values from Firebase
-  - `WORKER_URL`: fill this in after step 4
-
-Then open **Settings → Pages** and set **Source** to **GitHub Actions**.
-
-### 4. Deploy
-
-1. **Actions → "Deploy storage worker to Cloudflare" → Run workflow.** The log prints the worker's URL, something like `https://peach-papers.<you>.workers.dev`. Save it as the `WORKER_URL` variable.
-2. **Actions → "Deploy app to GitHub Pages" → Run workflow.**
+1. **Firebase** (free, no card needed): create a project, turn on Email/Password sign-in, authorize `vladk-iii.github.io`, create Firestore, paste in [`firebase/firestore.rules`](firebase/firestore.rules), and register a web app.
+2. **Cloudflare**: turn on R2 (it needs a card on file but stays free under 10 GB), create a bucket named `peach-papers`, and create an API token.
+3. **GitHub**: add the Cloudflare token and account ID as secrets and the Firebase config as variables, then set Pages → Source to **GitHub Actions**.
+4. **Deploy**: run the "Deploy storage worker" workflow, save its URL as the `WORKER_URL` variable, then run "Deploy app to GitHub Pages".
 
 After that, both deploy automatically whenever `app/` or `worker/` change on `main`.
-
-> If you fork this or rename the repo, update `ALLOWED_ORIGINS` in `worker/wrangler.toml` to your GitHub Pages address.
 
 ## Local development
 
