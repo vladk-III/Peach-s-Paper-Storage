@@ -13,6 +13,8 @@ There are four parts:
 Keep a notes file open. You'll copy about eight values from one site to another, and the [checklist at the end](#checklist-of-values) lists them all.
 
 > In the URLs below, replace **`<PROJECT_ID>`** with your Firebase project ID, for example `peach-papers-1a2b3`.
+> To find it, look at your browser's address bar on any Firebase page (`console.firebase.google.com/project/<PROJECT_ID>/overview`), or go to **⚙ Settings → General**.
+> Each step also says which menu to click, in case a link doesn't go straight to the right page.
 
 ---
 
@@ -29,21 +31,21 @@ Firebase's free **Spark** plan covers everything this app uses from Firebase. Yo
 
 ### 1.2 Turn on sign-in methods
 
-1. Open **https://console.firebase.google.com/project/<PROJECT_ID>/authentication/providers**. If you see **Get started**, click it first.
+1. In the left menu, go to **Security → Authentication**, or open **https://console.firebase.google.com/project/<PROJECT_ID>/authentication/providers**. If you see **Get started**, click it first.
 2. Under **Sign-in method**, click **Email/Password**, switch on the first toggle (**Email/Password**), and click **Save**. Leave "Email link" off.
 3. *(Optional)* Click **Add new provider → Google**, switch it on, pick a **support email**, and click **Save**.
    - Google sign-in works best in a normal browser tab. In the iPhone/iPad home-screen app, email and password is more reliable.
 
 ### 1.3 Allow the GitHub Pages site to sign people in
 
-1. Open **https://console.firebase.google.com/project/<PROJECT_ID>/authentication/settings**.
+1. In **Authentication**, open the **Settings** tab at the top, or go to **https://console.firebase.google.com/project/<PROJECT_ID>/authentication/settings**.
 2. Click **Authorized domains** in the left list, then **Add domain**.
 3. Enter `vladk-iii.github.io` and click **Add**.
    - `localhost` is already on the list, which you need for local development.
 
 ### 1.4 Create the database (Firestore)
 
-1. Open **https://console.firebase.google.com/project/<PROJECT_ID>/firestore**.
+1. In the left menu, go to **Databases & Storage → Firestore**, or open **https://console.firebase.google.com/project/<PROJECT_ID>/firestore**. Pick **Firestore**, not "Realtime Database" or "Storage".
 2. Click **Create database**.
    - **Edition**, if asked: **Standard**.
    - **Database ID**: leave it as `(default)`.
@@ -72,8 +74,9 @@ These rules make sure each account can only read and write its own papers.
 
 ### 1.6 Register the web app and copy its config
 
-1. Open **https://console.firebase.google.com/project/<PROJECT_ID>/settings/general**.
-2. Scroll to **Your apps** and click the **Web** icon (`</>`).
+1. On **Project Overview** (the 🏠 home page), click **＋ Add app** under the project name, then choose the **Web** icon (`</>`).
+   Another way: **⚙ Settings → General** (https://console.firebase.google.com/project/<PROJECT_ID>/settings/general), scroll to **Your apps**, and click `</>`.
+2. *(If it asks which platform, choose Web.)*
 3. Give it a nickname such as `Peach Papers web`. **Don't** tick "Also set up Firebase Hosting", because GitHub Pages hosts the app. Click **Register app**.
 4. Firebase shows a code snippet with a `firebaseConfig` object. Copy these four values into your notes:
 
@@ -86,6 +89,8 @@ These rules make sure each account can only read and write its own papers.
    You can ignore the other values (`storageBucket`, `messagingSenderId`).
    The web config isn't a secret: it's in every Firebase website's code. The security rules from 1.5 are what protect the data.
 5. Click **Continue to console**.
+
+The config is still there later under **⚙ Settings → General → Your apps → SDK setup and configuration → Config**.
 
 You can check usage at any time at **https://console.firebase.google.com/project/<PROJECT_ID>/usage**.
 Free plan limits: 1 GiB stored, 50,000 reads, 20,000 writes and 20,000 deletes per day. See https://firebase.google.com/pricing.
