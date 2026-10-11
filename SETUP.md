@@ -172,12 +172,15 @@ Open **https://github.com/vladk-III/Peach-s-Paper-Storage/settings/variables/act
 | `FIREBASE_AUTH_DOMAIN` | `authDomain` from 1.6 |
 | `FIREBASE_PROJECT_ID` | `projectId` from 1.6 |
 | `FIREBASE_APP_ID` | `appId` from 1.6 |
+> Firebase values are not passwords, so **Variables** is the right tab. If you've already added them as **Secrets**, that works too.
 | `WORKER_URL` | leave for now; you add it in step 4.1 |
 
 ### 3.3 Turn on GitHub Pages
 
 1. Open **https://github.com/vladk-III/Peach-s-Paper-Storage/settings/pages**.
 2. Under **Build and deployment → Source**, choose **GitHub Actions**.
+   - If Pages says it isn't available, the repository is probably **private**. GitHub Pages on private repos needs a paid plan, so make the repo public under **Settings → General → Danger Zone → Change visibility**. The code has no secrets in it: keys live in GitHub's secrets and variables.
+   - If the app deploy fails with `Failed to create deployment (status: 404)`, this step hasn't been done yet.
 
 ### 3.4 Make `main` the default branch (if it isn't already)
 
