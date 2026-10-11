@@ -670,6 +670,29 @@ select:focus {
   margin: 22px 0 10px;
 }
 
+.install-btn {
+  background: var(--accent-soft);
+  border-color: transparent;
+  font-weight: 600;
+}
+
+.install-steps {
+  margin: 12px 0 0;
+  padding-left: 22px;
+  line-height: 1.6;
+}
+
+.install-steps li + li {
+  margin-top: 6px;
+}
+
+.glyph {
+  display: inline-block;
+  padding: 0 4px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
 /* ---------- Modal ---------- */
 
 .modal-backdrop {
