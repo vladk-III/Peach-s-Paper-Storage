@@ -8,6 +8,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../firebase";
+import { InstallButton } from "./InstallButton";
 
 type Mode = "signin" | "signup" | "reset";
 
@@ -108,6 +109,7 @@ export function AuthScreen() {
             </button>
           )}
         </div>
+        <InstallButton />
       </form>
     </div>
   );

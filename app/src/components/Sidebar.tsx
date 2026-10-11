@@ -4,6 +4,7 @@ import { createCollection, deleteCollection, renameCollection, type SyncState } 
 import type { Usage } from "../api";
 import type { Collection, Paper } from "../types";
 import { formatBytes } from "../format";
+import { InstallButton } from "./InstallButton";
 
 export type Filter =
   | { kind: "all" | "unread" | "reading" | "read" | "starred" }
@@ -95,6 +96,7 @@ export function Sidebar({ uid, user, open, onClose, filter, onFilter, papers, co
         </nav>
 
         <div className="sidebar-footer">
+          <InstallButton />
           <div className={`sync sync-${sync}`}>
             {sync === "synced" && "● Synced"}
             {sync === "saving" && "● Saving…"}
