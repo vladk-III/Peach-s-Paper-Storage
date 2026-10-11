@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#fff1e8"/>
+  <path d="M256 150c-30-40-80-52-112-40" fill="none" stroke="#7a5a3a" stroke-width="14" stroke-linecap="round"/>
+  <path d="M262 140c40-62 120-62 150-30-40 46-104 52-150 30z" fill="#6fbf73"/>
+  <path d="M256 170c-92-40-176 16-176 118 0 92 78 154 176 154s176-62 176-154c0-102-84-158-176-118z" fill="#f6a07f"/>
+  <path d="M256 170c-92-40-176 16-176 118 0 92 78 154 176 154s176-62 176-154c0-102-84-158-176-118z" fill="url(#g)"/>
+  <path d="M256 178c-14 70-14 180 0 256" fill="none" stroke="#e57b5a" stroke-width="10" stroke-linecap="round" opacity=".6"/>
+  <rect x="196" y="250" width="120" height="150" rx="10" fill="#fff" stroke="#e06c47" stroke-width="8"/>
+  <path d="M220 290h72M220 320h72M220 350h48" stroke="#f2b8a2" stroke-width="10" stroke-linecap="round"/>
+  <defs>
+    <radialGradient id="g" cx=".35" cy=".35" r=".8">
+      <stop offset="0" stop-color="#ffd3b8" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#f28c6b" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
