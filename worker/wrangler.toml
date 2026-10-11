@@ -1,0 +1,20 @@
+name = "peach-papers"
+main = "src/index.ts"
+compatibility_date = "2026-10-01"
+
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "peach-papers"
+
+[vars]
+# Your Firebase project ID (Firebase console -> Project settings).
+FIREBASE_PROJECT_ID = "your-firebase-project-id"
+# Comma-separated list of sites allowed to call this worker.
+ALLOWED_ORIGINS = "https://vladk-iii.github.io,http://localhost:5173"
+# Per-account storage limit (2 GB) and whole-bucket limit (9 GiB, safely under R2's 10 GB free tier).
+USER_QUOTA_BYTES = "2147483648"
+TOTAL_QUOTA_BYTES = "9663676416"
+# Largest single PDF accepted (75 MB; Workers free plan caps request bodies at 100 MB).
+MAX_FILE_BYTES = "78643200"
+# Contact address sent to Crossref with metadata lookups (their "polite pool").
+CONTACT_EMAIL = ""
